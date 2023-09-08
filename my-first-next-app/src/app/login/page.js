@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function Login () {
+export default function Login() {
   return (
  <>
  <section class="bg-gray-50 dark:bg-white">
