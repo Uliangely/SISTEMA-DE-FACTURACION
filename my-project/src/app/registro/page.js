@@ -12,35 +12,33 @@ export default function Registro() {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassworde] = useState("");
 
-
   const onSubmit = (event) => {
     event.preventDefault();
 
- // Validar el formulario
- if (name.length === 0) {
-  alert("Error, nombre vacío");
-  return;
-}
+    // Validar el formulario
+    if (name.length === 0) {
+      alert("Error, nombre vacío");
+      return;
+    }
 
-if (lastname.length === 0) {
-  alert("Error, apellido vacío");
-  return;
-}
+    if (lastname.length === 0) {
+      alert("Error, apellido vacío");
+      return;
+    }
 
-if (license.length === 0) {
-  alert("Error, carnet vacío");
-  return;
-}
+    if (license.length === 0) {
+      alert("Error, carnet vacío");
+      return;
+    }
 
-if (password === confirmpassword ) {  
-} else {
-  alert("Contrasenas no coinciden");
-}
+    if (password === confirmpassword) {
+    } else {
+      alert("Contrasenas no coinciden");
+    }
 
-// Enviar el formulario
-console.log(name, lastname, license, password, confirmpassword);
-
-};
+    // Enviar el formulario
+    console.log(name, lastname, license, password, confirmpassword);
+  };
 
   return (
     <>
@@ -66,9 +64,7 @@ console.log(name, lastname, license, password, confirmpassword);
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Crear Cuenta
               </h1>
-              <form
-                className="space-y-4 md:space-y-6"
-                onSubmit={onSubmit}>
+              <form className="space-y-4 md:space-y-6" onSubmit={onSubmit}>
                 <div>
                   <label
                     htmlFor="name"

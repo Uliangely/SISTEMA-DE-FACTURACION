@@ -7,8 +7,7 @@ export default function Sistema() {
   return (
     <>
       <div className="bg-white dark:bg-gray-900 fixed h-full w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-
-        <Navbar/>
+        <Navbar />
 
         <div className="w-1/2 mt-6 mx-auto rounded-lg bg-white border border-gray-200 p-3 text-gray-800 font-light mb-6">
           <h2>Datos del cliente</h2>
@@ -60,50 +59,50 @@ export default function Sistema() {
           </div>
           <div className="flex p-8">
             <div className="flex-initial w-64">
-                <span className="text-gray-600 font-semibold text-sm mb-2 ml-1">
-                  Método de pago
-                </span>
-                <label
-                  htmlFor="efectivo"
-                  className="flex items-center cursor-pointer"
-                >
-                  {" "}
-                  Efectivo
-                  <input
-                    type="radio"
-                    className="form-radio h-5 w-5 text-indigo-500"
-                    name="efectivo"
-                    id="efectivo"
-                  />
-                </label>
-                <label
-                  htmlFor="punto"
-                  className="flex items-center cursor-pointer"
-                >
-                  {" "}
-                  Punto de Venta
-                  <input
-                    type="radio"
-                    className="form-radio h-5 w-5 text-indigo-500"
-                    name="punto"
-                    id="punto"
-                  />
-                </label>
-                <label
-                  htmlFor="pagoMovil"
-                  className="flex items-center cursor-pointer"
-                >
-                  Pago movil
-                  <input
-                    type="radio"
-                    className="form-radio h-5 w-5 text-indigo-500"
-                    name="pagoMovil"
-                    id="pagoMovil"
-                  />
-                </label>
+              <span className="text-gray-600 font-semibold text-sm mb-2 ml-1">
+                Método de pago
+              </span>
+              <label
+                htmlFor="efectivo"
+                className="flex items-center cursor-pointer"
+              >
+                {" "}
+                Efectivo
+                <input
+                  type="radio"
+                  className="form-radio h-5 w-5 text-indigo-500"
+                  name="efectivo"
+                  id="efectivo"
+                />
+              </label>
+              <label
+                htmlFor="punto"
+                className="flex items-center cursor-pointer"
+              >
+                {" "}
+                Punto de Venta
+                <input
+                  type="radio"
+                  className="form-radio h-5 w-5 text-indigo-500"
+                  name="punto"
+                  id="punto"
+                />
+              </label>
+              <label
+                htmlFor="pagoMovil"
+                className="flex items-center cursor-pointer"
+              >
+                Pago movil
+                <input
+                  type="radio"
+                  className="form-radio h-5 w-5 text-indigo-500"
+                  name="pagoMovil"
+                  id="pagoMovil"
+                />
+              </label>
             </div>
             <div>
-              <div className="flex-initial w-64" >
+              <div className="flex-initial w-64">
                 <div className="mb-6 pb-6 border-b border-gray-200 text-gray-800">
                   <div className="w-full flex mb-3 items-center">
                     <div className="flex-grow">
