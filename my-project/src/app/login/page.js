@@ -1,20 +1,23 @@
 "use client";
 
-import { React, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { list } from "postcss";
+import { useState } from "react";
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
-  const [license, setLicense] = useState("");
-  const [password, setPassword] = useState("");
+  const router = useRouter()
 
-  const onSubmit = (event) => {
+  const [carnet, setLicense] = useState("");
+  const [password, setPassword] = useState("");
+  const [showErr, setShowErr] = useState("");
+
+  const onSubmit = async (event) => {
     event.preventDefault();
+    setShowErr(false);
 
     // Validar el formulario
 
-    if (license.length === 0) {
+    if (carnet.length === 0) {
       alert("Error, carnet vacío");
       return;
     }
@@ -25,7 +28,22 @@ export default function Login() {
     }
 
     // Enviar el formulario
-    console.log(license, password);
+    console.log(carnet, password);
+
+    const response = await fetch("api/login", {
+      method: "POST",
+      body: JSON.stringify({ carnet, password }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    });
+
+    if (response.status != 200) {
+      // MUESTAS MENSAJE
+      setShowErr(true);
+      return;
+    } 
+    const { result } = await response.json()
+    localStorage.setItem("user", JSON.stringify(result));
+    router.push('/productos')
   };
 
   return (
@@ -46,11 +64,21 @@ export default function Login() {
             />
             tiendanube
           </a>
+
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Escriba su usuario
               </h1>
+              <div>
+                {showErr && (
+                  <h1 className="text-red-600 text-sm">
+                    El carnet que ingresaste no existe en nuestro sistema. ¿Te
+                    gustaría intentarlo de nuevo?
+                  </h1>
+                )}
+              </div>
+
               <form
                 onSubmit={onSubmit}
                 className="space-y-4 md:space-y-6"
@@ -66,7 +94,7 @@ export default function Login() {
                   <input
                     type="text"
                     name="lisence"
-                    value={license}
+                    value={carnet}
                     onChange={(e) => setLicense(e.target.value)}
                     id="lisence"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

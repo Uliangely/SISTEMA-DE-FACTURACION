@@ -1,17 +1,20 @@
 "use client";
 
-import { React, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from 'next/navigation';
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 
 export default function Agregar() {
+  const router = useRouter()
+
   const [nameproduct, setNameproduct] = useState("");
   const [amount, setAmount] = useState("");
   const [price, setPrice] = useState("");
+  const [showError, setShowErr] = useState(false);
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
+    setShowErr(false);
 
     // Validar el formulario
     if (nameproduct.length === 0) {
@@ -24,14 +27,32 @@ export default function Agregar() {
       return;
     }
 
-    if (!isNaN(price) && price.match(/^[0-9]+(\.[0-9]{1,2})?$/)) {
-      alert("Error, ingrese un precio válido");
-    } else if (price.length === 0) {
+    // if (!isNaN(price)) {
+    //   alert("Error, ingrese un precio válido");
+    //   return;
+    // }
+    if (price.length === 0) {
       alert("Error, ingrese un precio para el producto");
+      return;
     }
 
     // Enviar el formulario
     console.log(nameproduct, price, amount);
+
+    const response = await fetch("api/producto", {
+      method: "POST",
+      body: JSON.stringify({ nameproduct, amount, price }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    });
+
+    // Mostramos el mensaje de error.
+    if (response.status != 201) {
+      setShowErr(true);
+      return;
+    }
+    //SE ENVIA A PRODCUTOS
+
+    router.push("/productos");
   };
 
   return (
@@ -46,6 +67,18 @@ export default function Agregar() {
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                   Agregar Producto
                 </h1>
+
+                <div>
+                  {showError && (
+                    <h1 className="text-red-600 text-sm">
+                      Lo sentimos, pero el producto{" "}
+                      <span className="font-bold">{nameproduct}</span> que
+                      ingresaste ya está guardado. ¿Te gustaría intentar con
+                      otro?
+                    </h1>
+                  )}
+                </div>
+
                 <form onSubmit={onSubmit} className="space-y-4 md:space-y-6">
                   <div>
                     <label

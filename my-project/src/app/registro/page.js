@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-//import { fecth } from "../services/fecth";
+//import { fecth } from "../services q/fecth";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
@@ -40,7 +40,7 @@ export default function Registro() {
       alert("Contrasenas no coinciden");
     }
 
-    const response = await fetch("api/producto", {
+    const response = await fetch("api/usuario", {
       method: "POST",
       body: JSON.stringify({ name, lastname, license: carnet, password }),
       headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -52,6 +52,7 @@ export default function Registro() {
       return;
     }
     //SE ENVIA AL LOGIN
+
     router.push('/login')
   };
 
@@ -88,7 +89,8 @@ export default function Registro() {
                       Lo sentimos, pero el carnet <span className="font-bold">{carnet}</span> que ingresaste ya
                       está en uso. ¿Te gustaría intentar con otro?
                     </h1>
-                  )}
+                  )
+                  }
                 </div>
                 <form className="space-y-4 md:space-y-6" onSubmit={onSubmit}>
                   <div>
