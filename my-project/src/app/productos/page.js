@@ -1,13 +1,27 @@
 "use client";
-
+import { React, useState, useEffect } from "react";
+import { fecth } from "../services/fecth";
 import { useRouter } from "next/navigation";
-import React from "react";
+// import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 
 export default function Productos() {
+  const [product, setProduct] = useState([]);
   const router = useRouter();
+
+  //API
+
+useEffect(()=>{
+  
+  (async()=>{
+    const res = await fecth({url:'http://localhost:3000/api/producto'})
+  
+    if(res) setProduct (res.results)
+  }) ()
+  
+  },[])
 
   return (
     <>
