@@ -1,19 +1,23 @@
 "use client";
 
 import { React, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 
 export default function Cliente() {
+  const router = useRouter();
+
+  const [showErr, setShowErr] = useState("");
   const [identificationDocument, setIdentificationDocument] = useState("");
 
-  const handleChange = (event) => {
-    setIdentificationDocument(event.target.value);
-  };
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    console.log("HERE");
+    setShowErr(false);
 
-  const handleSubmit = () => {
     // Validar el valor del input
     if (identificationDocument.length === 0) {
       alert("El campo de identificación debe estar lleno");
@@ -27,6 +31,22 @@ export default function Cliente() {
 
     // Enviar el formulario
     console.log(identificationDocument);
+
+    const response = await fetch("api/dash", {
+      method: "POST",
+      body: JSON.stringify({ identificationDocument }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    });
+
+    if (response.status != 200) {
+      // MUESTAS MENSAJE
+      setShowErr(true);
+      return;
+    }
+
+    const { result } = await response.json();
+    localStorage.setItem("user", JSON.stringify(result));
+    router.push("/sistema");
   };
 
   return (
@@ -39,60 +59,51 @@ export default function Cliente() {
             <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <div className="w-96">
-                  <label
-                    htmlFor="identification_document"
-                    className="block text-sm font-medium leading-6 text-gray-900"
+                  <h1>Documento de identidad del cliente:</h1>
+
+                  <div>
+                    {showErr && (
+                      <h1 className="text-red-600 text-sm">
+                        La cedula que ingresaste no existe en nuestro sistema.
+                        ¿Te gustaría intentarlo de nuevo?
+                      </h1>
+                    )}
+                  </div>
+
+                  <form
+                    onSubmit={onSubmit}
+                    className="space-y-4 md:space-y-6"
+                    action="#"
                   >
-                    Documento de identidad del cliente:
-                  </label>
-
-                  <div className="relative mt-2 rounded-md shadow-sm">
-                    <input
-                      type="text"
-                      name="identificationDocument"
-                      value={identificationDocument}
-                      onChange={handleChange}
-                      id="identificationDocument"
-                      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      placeholder="Escriba Aqui..."
-                    />
-
-                    <div className="absolute inset-y-0 right-0 flex items-center">
-                      <select
-                        id="tipo_docuemnto"
-                        name="tipo_docuemnto"
-                        className="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+                    <div>
+                      <label
+                        htmlFor="lisence"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                       >
-                        <option>V</option>
-                        <option>E</option>
-                        <option>P</option>
-                      </select>
+
+                      </label>
+                      <input
+                        type="text"
+                        name="identificationDocument"
+                        value={identificationDocument}
+                        onChange={(e) =>
+                          setIdentificationDocument(e.target.value)
+                        }
+                        id="identificationDocument"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Escriba aquí..."
+                        required=""
+                      />
                     </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-row">
-                  {/* <div className="w-1/2 mt-6 flex md:order-2">
-                    <button
-                      href="/src/app/sistema/page.js"
-                      type="button"
-                      onClick={handleSubmit}
-                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    >
-                      Siguiente
-                    </button>
-                  </div> */}
-
-                  <div className="w-1/2 mt-6 flex md:order-2">
-                    <button
-                      href="/src/app/crearcliente/page.js"
-                      type="button"
-                      onClick={handleSubmit}
-                      className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    >
-                      Crear cliente
-                    </button>
-                  </div>
+                    <div className="w-1/2 mt-6 flex md:order-2">
+                      <button
+                        type="submit"
+                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      >
+                        Crear cliente
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>

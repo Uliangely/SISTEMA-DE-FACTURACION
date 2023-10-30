@@ -5,47 +5,77 @@ import { React, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
+import { useRouter } from 'next/navigation';
 
 export default function Crearcliente() {
+  const router = useRouter()
+
+  const [showError, setShowErr] = useState(false);
   const [name, setName] = useState("");
   const [lastname, setLastName] = useState("");
   const [identificationDocument, setIdentificationDocument] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
+    setShowErr(false);
+
 
     // Validar el formulario
-    if (name.length === 0) {
+    if (name === "") {
       alert("Error, nombre vacío");
       return;
     }
 
-    if (lastname.length === 0) {
+    if (lastname === "") {
       alert("Error, apellido vacío");
       return;
     }
 
-    if (identificationDocument.length === 0) {
+    if (identificationDocument === "") {
       alert("El campo de identificación debe estar lleno");
-    } else if (isNaN(identificationDocument)) {
+      return;
+    } 
+    
+    if (isNaN(identificationDocument)) {
       alert("El campo de identificación debe contener solo números");
+      return;
     }
 
     if (phone.length === 0) {
       alert("El campo de telefono debe estar lleno");
-    } else if (!phone.match(/^[0-9]{10}$/)) {
-      alert("El campo de número de teléfono debe tener 10 dígitos numéricos");
+      return;
     }
 
-    if (address.length === 0) {
+    if (!phone.match(/^[0-9]+$/)) {
+      alert("El campo de número de teléfono debe tener 10 dígitos numéricos");
+      return;
+    }
+
+    if (address === "") {
       alert("Error, direccion vacía");
       return;
     }
 
     // Enviar el formulario
     console.log(name, lastname, identificationDocument, phone, address);
+
+
+    const response = await fetch("api/cliente", {
+      method: "POST",
+      body: JSON.stringify({  name, lastname, identificationDocument, phone, address  }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    });
+
+    // Mostramos el mensaje de error.
+    if (response.status != 201) {
+      setShowErr(true);
+      return;
+    }
+    //SE ENVIA AL LOGIN
+    router.push('/sistema')
+
   };
 
   return (
@@ -60,6 +90,18 @@ export default function Crearcliente() {
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                   Registro de cliente
                 </h1>
+
+                <div>
+                  {showError && (
+                    <h1 className="text-red-600 text-sm">
+                      Lo sentimos, pero la cedula <span className="font-bold">{identificationDocument}</span> que ingresaste ya
+                      está en uso. ¿Te gustaría intentar con otra?
+                    </h1>
+                  )
+                  }
+                </div>
+
+
                 <form
                   onSubmit={onSubmit}
                   className="space-y-4 md:space-y-6"

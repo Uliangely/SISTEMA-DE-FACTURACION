@@ -1,11 +1,11 @@
 "use client";
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 
 export default function Agregar() {
-  const router = useRouter()
+  const router = useRouter();
 
   const [nameproduct, setNameproduct] = useState("");
   const [amount, setAmount] = useState("");
@@ -27,10 +27,6 @@ export default function Agregar() {
       return;
     }
 
-    // if (!isNaN(price)) {
-    //   alert("Error, ingrese un precio válido");
-    //   return;
-    // }
     if (price.length === 0) {
       alert("Error, ingrese un precio para el producto");
       return;
