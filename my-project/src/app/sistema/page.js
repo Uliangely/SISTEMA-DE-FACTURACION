@@ -1,15 +1,17 @@
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 
+
 export default function Sistema() {
   return (
     <>
-      <div className="bg-white dark:bg-gray-900 fixed h-full w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+      <div className="bg-gray-900  fixed h-full w-full z-20 top-0 left-0 border-b border-gray-200">
         <Navbar />
 
-        <div className="w-1/2 mt-6 mx-auto rounded-lg bg-white border border-gray-200 p-3 text-gray-800 font-light mb-6">
+        <div className="w-1/2 mt-6 mx-auto rounded-lg bg-gray-900 border border-gray-200 p-3 text-white font-light mb-6">
           <h2>Datos del cliente</h2>
           <p>
             <strong>Nombre:</strong>
@@ -24,16 +26,16 @@ export default function Sistema() {
             <strong>Teléfono:</strong>
           </p>
           <p>
-            <strong>Direccion:</strong>Buscar producto
+            <strong>Direccion:</strong>
           </p>
           <p>
             <strong>Numero de factura:</strong>
           </p>
         </div>
 
-        <div className="w-1/2 mt-6 mx-auto rounded-lg bg-white border border-gray-200 p-3 text-gray-800 font-light mb-6">
-          <div className="w-80  mt-6 rounded-lg bg-gray-200 p-5 w-2/4">
-            <p>Buscar producto</p>
+        <div className="w-1/2 mt-6 mx-auto rounded-lg bg-gray-900 border border-gray-200 p-3 text-white font-light mb-6">
+          <div className="w-80  mt-6 rounded-lg bg-gray-800 p-5 w-2/4">
+            <p className="text-white">Buscar producto</p>
             <div className="flex">
               <div className="flex w-10 items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-white p-5">
                 <svg
@@ -59,7 +61,7 @@ export default function Sistema() {
           </div>
           <div className="flex p-8">
             <div className="flex-initial w-64">
-              <span className="text-gray-600 font-semibold text-sm mb-2 ml-1">
+              <span className="text-white font-semibold text-sm mb-2 ml-1">
                 Método de pago
               </span>
               <label
@@ -103,10 +105,10 @@ export default function Sistema() {
             </div>
             <div>
               <div className="flex-initial w-64">
-                <div className="mb-6 pb-6 border-b border-gray-200 text-gray-800">
+                <div className="mb-6 pb-6 border-b border-gray-200 text-white">
                   <div className="w-full flex mb-3 items-center">
                     <div className="flex-grow">
-                      <span className="text-gray-600">Subtotal</span>
+                      <span className="text-white">Subtotal</span>
                     </div>
                     <div className="pl-3">
                       <span className="font-semibold">$2.00</span>
@@ -114,7 +116,7 @@ export default function Sistema() {
                   </div>
                   <div className="w-full flex items-center">
                     <div className="flex-grow">
-                      <span className="text-gray-600">Impuestos</span>
+                      <span className="text-white">Impuestos</span>
                     </div>
                     <div className="pl-3">
                       <span className="font-semibold">$1</span>
@@ -124,13 +126,13 @@ export default function Sistema() {
                 <div className="mb-6 pb-6 border-b border-gray-200 md:border-none text-gray-800 text-xl">
                   <div className="w-full flex items-center">
                     <div className="flex-grow">
-                      <span className="text-gray-600">Total</span>
+                      <span className="text-white">Total</span>
                     </div>
                     <div className="pl-3">
                       <span className="font-semibold text-gray-400 text-sm">
                         Dólares
                       </span>{" "}
-                      <span className="font-semibold">$3</span>
+                      <span className="font-semibold text-white">$3</span>
                     </div>
                   </div>
                 </div>

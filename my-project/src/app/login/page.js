@@ -48,11 +48,11 @@ export default function Login() {
 
   return (
     <>
-      <section className="h-full bg-gray-50 dark:bg-white">
+      <section className="h-full bg-gray-50 bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <a
             href="#"
-            className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-gray-950"
+            className="flex items-center mb-6 text-2xl font-semibold text-white "
           >
             <Image
               className="w-8 h-8 mr-2"
@@ -87,7 +87,7 @@ export default function Login() {
                 <div>
                   <label
                     htmlFor="lisence"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 text-white"
                   >
                     Carnet
                   </label>
@@ -128,11 +128,11 @@ export default function Login() {
                 >
                   Iniciar Sesión
                 </button>
-                <p className="text-sm font-light text-gray-500 dark:text-gray-700">
+                <p className="text-sm font-light text-white">
                   ¿No te haz registrado?{" "}
                   <a
                     href="../registro"
-                    className="font-medium text-primary-600 hover:underline dark:text-Emerald-400"
+                    className="font-medium text-primary-600 hover:underline text-blue-400"
                   >
                     Registrarme
                   </a>

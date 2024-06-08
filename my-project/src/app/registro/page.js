@@ -60,11 +60,11 @@ export default function Registro() {
     {},
     (
       <>
-        <section className="bg-gray-50 dark:bg-gray-50">
+        <section className="bg-gray-900">
           <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <a
               href="#"
-              className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-gray-950"
+              className="flex items-center mb-6 text-2xl font-semibold text-white"
             >
               <Image
                 className="w-8 h-8 mr-2"
@@ -77,9 +77,9 @@ export default function Registro() {
               tiendanube
             </a>
 
-            <div className=" w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:gray-50 dark:border-white">
+            <div className=" w-full bg-gray-800 rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800">
               <div className=" p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                <h1 className="text-xl font-bold leading-tight tracking-tight text-b md:text-2xl ">
                   Crear Cuenta
                 </h1>
 
@@ -96,7 +96,7 @@ export default function Registro() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-950"
+                      className="block mb-2 text-sm font-semibold text-gray-900 text-white"
                     >
                       Nombre
                     </label>
@@ -106,7 +106,7 @@ export default function Registro() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       id="name"
-                      className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-slate-400 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Escriba su nombre"
                     />
                   </div>
@@ -114,7 +114,7 @@ export default function Registro() {
                   <div>
                     <label
                       htmlFor="lastname"
-                      className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-950"
+                      className="block mb-2 text-sm font-semibold text-gray-900 text-white"
                     >
                       Apellido
                     </label>
@@ -124,7 +124,7 @@ export default function Registro() {
                       value={lastname}
                       onChange={(e) => setLastName(e.target.value)}
                       id="lastname"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white  dark:border-slate-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Escriba su apellido"
                       required=""
                     />
@@ -133,7 +133,7 @@ export default function Registro() {
                   <div>
                     <label
                       htmlFor="license"
-                      className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-950"
+                      className="block mb-2 text-sm font-semibold text-gray-900 text-white"
                     >
                       Carnet
                     </label>
@@ -143,7 +143,7 @@ export default function Registro() {
                       value={carnet}
                       onChange={(e) => setLicense(e.target.value)}
                       id="license"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white  dark:border-slate-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Escriba su número de carnet"
                       required=""
                     />
@@ -152,7 +152,7 @@ export default function Registro() {
                   <div>
                     <label
                       htmlFor="password"
-                      className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-950"
+                      className="block mb-2 text-sm font-semibold text-gray-900 text-white"
                     >
                       Contraseña
                     </label>
@@ -163,14 +163,14 @@ export default function Registro() {
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
                       id="password"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white  dark:border-slate-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="confirmpassword"
-                      className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-950"
+                      className="block mb-2 text-sm font-semibold text-gray-900 text-white"
                     >
                       Confirme su contraseña
                     </label>
@@ -181,7 +181,7 @@ export default function Registro() {
                       onChange={(e) => setConfirmPassworde(e.target.value)}
                       placeholder="••••••••"
                       id="confirmpassword"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-slate-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
                     />
                   </div>
@@ -192,11 +192,11 @@ export default function Registro() {
                   >
                     Registrarme
                   </button>
-                  <p className="text-sm font-light text-gray-500 dark:text-gray-700">
+                  <p className="text-sm font-light text-gray-500 text-white">
                     ¿Ya tienes una cuenta?{" "}
                     <a
                       href="../login"
-                      className="font-medium text-primary-600 hover:underline dark:text-Emerald-400"
+                      className="font-medium text-primary-600 hover:underline text-blue-400"
                     >
                       Ir a login
                     </a>
