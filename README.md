@@ -34,6 +34,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ![imagen](https://github.com/Uliangely/SISTEMA-DE-FACTURACION/assets/136552648/5872925d-81e6-46bd-a575-b5366bb7a80b)
 ![imagen](https://github.com/Uliangely/SISTEMA-DE-FACTURACION/assets/136552648/deef46cc-951f-49c6-a234-1f648bd327bc)
 ![imagen](https://github.com/Uliangely/SISTEMA-DE-FACTURACION/assets/136552648/97c2da3d-3273-4ba1-b7e3-bc33f0d141d0)
+![imagen](https://github.com/Uliangely/SISTEMA-DE-FACTURACION/assets/136552648/ab6c742f-5729-413c-8df6-5845c7b18652)
 ![imagen](https://github.com/Uliangely/SISTEMA-DE-FACTURACION/assets/136552648/bd86d2f8-54cd-4523-946f-223d51ad11d9)
 ![imagen](https://github.com/Uliangely/SISTEMA-DE-FACTURACION/assets/136552648/a62aa9b1-85a7-4e79-b644-580dbc76fe8d)
 ![imagen](https://github.com/Uliangely/SISTEMA-DE-FACTURACION/assets/136552648/e7a18957-f655-4bc3-99e5-778385aaf0ce)
